@@ -12,10 +12,10 @@ class MainServer extends Server {
         this.app.use(bodyParser.urlencoded({ extended: true }));
         // Specify allowed origins
         this.app.use(cors({
-            origin: ['https://user-management-one-delta.vercel.app'], // Add more origins if needed
+            origin: '*',
             methods: ['GET', 'POST', 'PUT', 'DELETE'],
             allowedHeaders: ['Content-Type', 'Authorization']
-        }));
+        }));        
         this.setupControllers();
     }
 
