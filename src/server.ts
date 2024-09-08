@@ -11,10 +11,7 @@ class MainServer extends Server {
         super(true);
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: true }));
-        this.app.use(cors({ 
-            origin: "https://user-management-backend-sage.vercel.app/",
-            credentials: true,
-        }));
+        this.app.use(cors({ origin: '*' }));
         this.app.options('*', cors());
         this.setupControllers()
     }
@@ -23,6 +20,12 @@ class MainServer extends Server {
         const userController = new UserController();
         this.addControllers([userController]);
     }
+
+    public start(port: number): void {
+        this.app.listen(port, () => {
+            console.log(`Server is listening at ${port}`)
+        })
+    }
 }
 
 mongoose.connect(mongo_uri)
@@ -30,5 +33,5 @@ mongoose.connect(mongo_uri)
     .catch(err => console.log(err));
 
 const server = new MainServer();
-const app = server.app;
-export default app;
+const PORT: number = 3000;
+server.start(PORT)
