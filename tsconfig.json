@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // or "ES6", depending on your needs
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "strict": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
+    "types": ["node", "express"], // Handles Node and Express types
+    "typeRoots": ["./node_modules/@types"], // This is the default and can be omitted
+    "lib": ["ES2020", "DOM"], // Define the standard library, adjust as needed
+    "skipLibCheck": true // Skips checking of library files for faster builds
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
