@@ -33,5 +33,5 @@ mongoose.connect(mongo_uri)
     .catch(err => console.log(err));
 
 const server = new MainServer();
-const PORT: number = 3000;
+const PORT: number = 8000;
 server.start(PORT)

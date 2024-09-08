@@ -27,5 +27,5 @@ mongoose.connect(mongo_uri)
     .then(() => console.log('Connected to MongoDB database'))
     .catch(err => console.log(err));
 const server = new MainServer();
-const PORT = 3000;
+const PORT = 8000;
 server.start(PORT);
